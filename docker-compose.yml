@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  ruby-async-web:
+    build: .
+    volumes:
+      - ./:/app
+    networks:
+      - main
+    ports:
+      - 3000:3000
+
+  httpbin:
+    image: kennethreitz/httpbin
+    ports:
+      - 8000:80
+    networks: 
+      - main
+
+networks:
+  main:
+    name: main
